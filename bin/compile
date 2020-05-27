@@ -26,8 +26,8 @@ install_jdk() {
   local install_dir=${1}
   local CACHE_DIR=${2}
 
-  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
-  JVM_COMMON="jvm-common.tgz"
+  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:- https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz}
+  JVM_COMMON="jvm.tgz"
   if [ ! -f ${CACHE_DIR}/${JVM_COMMON} ]; then
     curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK > ${CACHE_DIR}/${JVM_COMMON}
   fi
